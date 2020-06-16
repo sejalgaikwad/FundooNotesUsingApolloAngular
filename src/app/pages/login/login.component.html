@@ -38,10 +38,10 @@
                 </mat-error>
             </mat-form-field>
             <mat-icon (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-            <a mat-button color="primary" href="https://www.google.com/" target="_blank">Forgot Password?</a>  
+            <a mat-button color="primary"(click)=forgotPassword()>Forgot Password?</a>  
         </div>
         <div>
-            <a mat-button color="primary" href="https://www.google.com/" target="_blank">Create account</a>
+            <a mat-button color="primary" (click)=signUp()>Create account</a>
             <button mat-raised-button color="primary" (click)=login() >Next</button>
         </div>
     </mat-card>

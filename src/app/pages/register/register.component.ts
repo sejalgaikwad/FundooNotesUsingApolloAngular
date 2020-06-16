@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { MatSnackBar } from "@angular/material/snack-bar";
+import { Router } from '@angular/router';
 import {Apollo} from 'apollo-angular';
 import gql from 'graphql-tag';
 
 const register = gql`
-mutation register( $firstName:String! $lastName: String! $email: String! $password: String!) {
-  register(firstName: $firstName lastName: $lastName email: $email password: $password) {
+mutation register( $firstName:String! $lastName:String! $email:String! $password:String!) {
+  register(firstName:$firstName lastName:$lastName email:$email password:$password) {
     message
     success
     token
@@ -25,11 +27,11 @@ export class RegisterComponent implements OnInit {
   password = new FormControl("", [Validators.required]);
   confirmpassword = new FormControl("", [Validators.required]);
 
-  constructor(public apollo: Apollo) { }
+  constructor( public router: Router, public apollo: Apollo, private snackBar: MatSnackBar) { }
   
   ngOnInit(): void {
   }
-  
+
   hide= true;
   register(){
     this.apollo.mutate({
@@ -40,11 +42,18 @@ export class RegisterComponent implements OnInit {
         email: this.email.value,
         password: this.password.value
       }
-    }).subscribe(({ data }) => {
+    }).subscribe(data=>{
       console.log('got data', data);
+      this.snackBar.open("Registered successfully!!", "ok", { duration: 5000 });
+      this.router.navigate(["login"])
     },(error) => {
       console.log('there was an error sending the query', error);
+      this.snackBar.open("Register failed!!", "ok", { duration: 5000 });
     });
+  }
+
+  signIn() {
+    this.router.navigate(["login"])
   }
 }
  

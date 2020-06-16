@@ -18,6 +18,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSliderModule } from '@angular/material/slider';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { MatSliderModule } from '@angular/material/slider';
     MatButtonModule,
     MatCardModule,
     MatIconModule,
-    MatSliderModule
+    MatSliderModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
