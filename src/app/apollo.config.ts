@@ -1,4 +1,4 @@
-require('dotenv').config()
+//require('dotenv').config()
 import {NgModule} from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 
@@ -17,7 +17,7 @@ import {InMemoryCache} from 'apollo-cache-inmemory';
 export class GraphQLModule {
   constructor(apollo: Apollo, httpLink: HttpLink) {
     
-    const uri = process.env.ENDPOINT_URL;
+    const uri = "http://localhost:4000/graphql"
     const http = httpLink.create({ uri });
 
     apollo.create({
