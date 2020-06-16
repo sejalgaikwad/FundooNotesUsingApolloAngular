@@ -13,7 +13,7 @@ export class ResetPasswordComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  hide=true;
   resetPassword(){
     console.log(this.password.value);  
   }
