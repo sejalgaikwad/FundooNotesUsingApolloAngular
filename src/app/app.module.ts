@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { GraphQLModule } from './apollo.config';
 import { NgModule } from '@angular/core';
 
 import { FormsModule,  ReactiveFormsModule } from '@angular/forms';
@@ -28,6 +29,7 @@ import { MatSliderModule } from '@angular/material/slider';
   ],
   imports: [
     BrowserModule,
+    GraphQLModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
